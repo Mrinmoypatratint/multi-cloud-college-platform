@@ -7,6 +7,8 @@
 
 An enterprise-grade, production-style **Multi-Cloud College Management & Student Services Platform** built with **React (Vite)**, **Django REST Framework**, **PostgreSQL**, **Docker**, **Nginx**, **GitHub Actions CI/CD**, and Multi-Cloud Infrastructure (AWS Production & Azure Staging/Disaster Recovery).
 
+Project timeline: started on 3 April 2026 and ended on 27 May 2026.
+
 ---
 
 ## 🏛️ System Architecture
