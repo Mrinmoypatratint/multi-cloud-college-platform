@@ -107,6 +107,32 @@ Once the servers are running, access the frontend at `http://localhost:3000` and
 
 ---
 
+## ☁️ Connecting AWS & Azure for CI/CD Deployment
+
+To enable the automated deployment pipeline, you need to connect your AWS and Azure accounts by adding your cloud credentials as **GitHub Repository Secrets**.
+
+### Step 1: Access GitHub Secrets
+1. Go to your repository on GitHub.
+2. Click on the **Settings** tab.
+3. In the left sidebar, under the **Security** section, expand **Secrets and variables** and click on **Actions**.
+4. Click the green **New repository secret** button.
+
+### Step 2: Add AWS Credentials (Production)
+Generate an IAM Access Key in your AWS Console and add these two secrets:
+- **Name:** `AWS_ACCESS_KEY_ID`
+  - **Secret:** `(Your AWS Access Key)`
+- **Name:** `AWS_SECRET_ACCESS_KEY`
+  - **Secret:** `(Your AWS Secret Key)`
+
+### Step 3: Add Azure Credentials (Staging/Failover)
+Create a Service Principal in Azure using the Azure CLI (`az ad sp create-for-rbac`) and paste the entire JSON output as a secret:
+- **Name:** `AZURE_CREDENTIALS`
+  - **Secret:** `(The JSON authentication payload from Azure)`
+
+Once these secrets are saved, any code pushed to the `main` or `develop` branches will automatically trigger the GitHub Actions pipeline to deploy your infrastructure and containers to the clouds!
+
+---
+
 ## 🛑 Stopping the Servers
 
 - **Local Setup**: Press `Ctrl + C` in both the frontend and backend terminal windows.
